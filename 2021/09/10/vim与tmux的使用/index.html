@@ -22,14 +22,15 @@ tmux 是 linux 中一种管理窗口的程序，支持多标签、分割窗口�
   <meta name="description" content="vim 编辑器是在终端运行的文本代码编辑器。 tmux 是 linux 中一种管理窗口的程序，支持多标签、分割窗口以及窗口组随时存储和恢复的功能。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux下vim与tmux的使用">
-<meta property="og:url" content="https://jnpeng945.github.io/2021/11/14/vim%E4%B8%8Etmux%E7%9A%84%E4%BD%BF%E7%94%A8/">
+<meta property="og:url" content="https://jnpeng945.github.io/2021/09/10/vim%E4%B8%8Etmux%E7%9A%84%E4%BD%BF%E7%94%A8/">
 <meta property="og:site_name" content="JN&#39;s blog">
 <meta property="og:description" content="vim 编辑器是在终端运行的文本代码编辑器。 tmux 是 linux 中一种管理窗口的程序，支持多标签、分割窗口以及窗口组随时存储和恢复的功能。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-11-14T12:31:58.000Z">
-<meta property="article:modified_time" content="2021-11-30T11:35:09.452Z">
+<meta property="article:published_time" content="2021-09-10T12:31:58.000Z">
+<meta property="article:modified_time" content="2021-11-30T12:00:58.803Z">
 <meta property="article:author" content="Zrosor">
-<meta property="article:tag" content="vim tmux">
+<meta property="article:tag" content="vim">
+<meta property="article:tag" content="tmux">
 <meta name="twitter:card" content="summary_large_image">
   
   <title>Linux下vim与tmux的使用 - JN&#39;s blog</title>
@@ -44,7 +45,7 @@ tmux 是 linux 中一种管理窗口的程序，支持多标签、分割窗口�
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-dark.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github.min.css" />
     
   
 
@@ -209,11 +210,16 @@ tmux 是 linux 中一种管理窗口的程序，支持多标签、分割窗口�
             
               <div class="mt-3">
   
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Zrosor
+    </span>
+  
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-14 20:31" pubdate>
-        2021年11月14日 晚上
+      <time datetime="2021-09-10 20:31" pubdate>
+        2021年9月10日 晚上
       </time>
     </span>
   
@@ -267,34 +273,25 @@ tmux 是 linux 中一种管理窗口的程序，支持多标签、分割窗口�
               <p><code>vim</code> 编辑器是在终端运行的文本代码编辑器。</p>
 <p><code>tmux</code> 是 linux 中一种管理窗口的程序，支持多标签、分割窗口以及窗口组随时存储和恢复的功能。</p>
 <span id="more"></span>
-
 <h2 id="Vim-使用指南"><a href="#Vim-使用指南" class="headerlink" title="Vim 使用指南"></a>Vim 使用指南</h2><p><code>vim</code> 编辑器是在终端运行的文本代码编辑器。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sequence">Title: 标题：Vim 编辑器三种模式切换<br>命令模式-&gt;插入模式: 输入 i<br>Note left of 命令模式: 进入 vim 的初始状态<br>Note right of 底线命令模式: 保存退出:wq，退出:q，强制退出:q!<br>插入模式-&gt;命令模式: ESC<br>命令模式-&gt;底线命令模式: 输入:<br>底线命令模式-&gt;命令模式: 命令以回车结束运行<br># participant C<br># Note right of C: 没人陪我玩<br></code></pre></div></td></tr></table></figure>
-
-
-
 <pre><code class=" mermaid">graph LR
 A[修改vim配置文件]--&gt; B[配置相应命令]
 </code></pre>
-
 <p>一般我们可以在 <code>github</code> 上找别人配置好的 <code>.vimrc</code>  文件。</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> vim ~/.vimrc		<span class="hljs-comment">#在当前用户的根目录下新建 .vimrc 文件</span></span><br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 底线命令模式输入以下命令</span><br><span class="hljs-meta">$</span><span class="bash"> syntax on			<span class="hljs-comment"># 语法高亮</span></span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">set</span> number		<span class="hljs-comment"># 设置行号</span></span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">set</span> nonumber		<span class="hljs-comment"># 取消行号设置</span></span><br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 设置好 vim 配置文件之后，保存退出之后，下次再进入就自动设置了语法高亮并且设置了行号</span><br></code></pre></div></td></tr></table></figure>
-
 <p>常用的 <code>vim</code> 快捷键</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">h（左） j（下） k（上） l （右）<br>w	# 每次跳一个单词<br>b	# 往回跳<br>ctrl + f	# forword 往下翻页<br>ctrl + b	# 往上翻页<br>88gg		# 跳到 88 行<br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 往下，往上跳指定行</span> <br>10j			# 往下跳 10 行<br>10k			# 往上跳 10 行<br><br>/[内容]			# 查找内容 <br>按下 n 键可以跳到下一个查找的目标结果，shift + n 跳到上一个目标结果<br><br>cc	# 剪贴当前行<br>c2c	# 剪贴底下两行<br>u	# 撤销删除操作<br>pp	# 粘贴刚刚剪贴的内容<br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 批量选择</span><br><span class="hljs-meta">#</span><span class="bash"> 1. 命令模式中，按下 v 进入 visual 模式，然后搭配 hjkl（左下上右）键位使用，进行批量选择。</span><br><span class="hljs-meta">#</span><span class="bash"> 2. 搭配 c（剪贴） p（粘贴） u（撤销）键位使用</span><br>yy	# 复制当前行内容<br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 自动补全</span><br>ctrl + n	# 出现选项之后，按下 enter<br></code></pre></div></td></tr></table></figure>
-
-
-
 <p>:star: <code>vim</code> 插件管理器 + <strong>vim 自动补全插件</strong></p>
 <ul>
 <li><p>预先安装 <code>git</code> 和 <code>curl</code></p>
 </li>
 <li><p>安装 vim plug 插件（vim 插件管理软件），在 github 上下载；<a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">链接</a></p>
 </li>
-<li><p>```shell<br>curl -fLo ~/.vim/autoload/plug.vim –create-dirs \</p>
+<li><p>```shell<br>curl -fLo ~/.vim/autoload/plug.vim —create-dirs \</p>
 <div class="hljs code-wrapper"><pre><code>https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-</code></pre></div>
-<figure class="highlight leaf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs leaf"><br>- 修改 `~/.vimrc` 文件<br><br>  ```shell<br>  # 末尾添加<br>  call plug<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">begin</span><span class="hljs-params">()</span></span><br>  	Plug &#x27;scrooloose/nerdtree&#x27;		# 添加的插件名字<br>  call plug<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">end</span><span class="hljs-params">()</span></span><br></code></pre></div></td></tr></table></figure></li>
+</code></pre></div><figure class="highlight leaf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs leaf"><br>- 修改 `~/.vimrc` 文件<br><br>  ```shell<br>  # 末尾添加<br>  call plug<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">begin</span><span class="hljs-params">()</span></span><br>  	Plug &#x27;scrooloose/nerdtree&#x27;		# 添加的插件名字<br>  call plug<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">end</span><span class="hljs-params">()</span></span><br></code></pre></div></td></tr></table></figure>
+</li>
 <li><p>任意打开一个文件，假设我们 <code>vim code.cpp</code>，然后在 <code>code.cpp</code> 的底线命令模式下输入 <code>:PlugInstall</code></p>
 </li>
 </ul>
@@ -311,19 +308,16 @@ A[修改vim配置文件]--&gt; B[配置相应命令]
 <li><p>首先随意打开一个文件，假设打开 <code>vim code.c</code> </p>
 </li>
 <li><p>输入 <code>:NERDTree</code>，实现像目录一样浏览系统中的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 切换左右两边窗口</span><br>按两次 ctrl + w<br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 打开该文件</span><br>Enter<br></code></pre></div></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 切换左右两边窗口</span><br>按两次 ctrl + w<br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 打开该文件</span><br>Enter<br></code></pre></div></td></tr></table></figure>
+</li>
 </ol>
 <p>:star: 每次使用 <code>vim</code> 都打开 <code>NERDTree</code> 插件的解决方法：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> Just write this line to your .vimrc :</span><br>autocmd VimEnter * NERDTree<br></code></pre></div></td></tr></table></figure>
-
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/3788903/how-to-start-vim-with-nerd-tree-opened-automatically#">execute nerdtree automatically</a></p>
 </blockquote>
 <p>:star: 删除插件的方法</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">PlugClean<br></code></pre></div></td></tr></table></figure>
-
-
-
 <h2 id="Tmux-使用指南"><a href="#Tmux-使用指南" class="headerlink" title="Tmux 使用指南"></a>Tmux 使用指南</h2><p><code>tmux</code> 是 linux 中一种管理窗口的程序，支持多标签、分割窗口以及窗口组随时存储和恢复的功能。<code>tmux</code> 的主要元素分为三层：</p>
 <ul>
 <li><em>Session</em> 一组窗口的集合， 通常用来概括同一个任务。<em>session</em> 可以有自己的名字便于任务之间的切换。</li>
@@ -334,12 +328,10 @@ A[修改vim配置文件]--&gt; B[配置相应命令]
 
 <p><code>tmux</code>：即使关闭 tmux，下次重新 attch 时，之前的东西还在服务器后台运行。为便于表述我们定义 <code>pre = ctrl + b</code> ，实际上我们使用时一般会修改 <code>tmux</code> 配置文件 <code>vim ~/.tmux.conf</code>，将快捷键 <code>ctrl+b</code> 改为 <code>ctrl+a</code>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment">### panes</span><br>pre + %		<span class="hljs-comment"># 水平分割 pane</span><br>pre + <span class="hljs-string">&quot;		# 垂直分割 pane</span><br><span class="hljs-string">exit		# 退出pane</span><br><span class="hljs-string">pre + z		# 放大当前的 pane</span><br><span class="hljs-string">pre + z		# 复原之前的 pane 状态(缩小)</span><br><span class="hljs-string">pre + 上下左右	# 切换 pane</span><br><span class="hljs-string">alt + 上下左右	# 切换 pane（这个需要修改配置文件）</span><br><span class="hljs-string"></span><br><span class="hljs-string">### windows</span><br><span class="hljs-string">pre + c		# 创建一个新的 window</span><br><span class="hljs-string">pre + 数字1，2		# 在不同window 之间移动</span><br><span class="hljs-string">pre + &amp;		# 关闭当前 window</span><br><span class="hljs-string"># 重命名window，创建一个新的 window 之后，除了数字编号不同外，window 名称都是一样的</span><br><span class="hljs-string">pre + ,		# 更改 window 名称</span><br><span class="hljs-string"></span><br><span class="hljs-string">### session</span><br><span class="hljs-string">tmux ls		# 查看所有的 session(正常运行显示 attach)</span><br><span class="hljs-string">pre + $		# 每个 session 一般对应于一个 project</span><br><span class="hljs-string">tmux new -s [名字]	# 创建 session 时直接命名</span><br><span class="hljs-string">pre + d			# 退出session（挂起）</span><br><span class="hljs-string">tmux a -t [名字]	# 重新连接某个session</span><br><span class="hljs-string">tmux a		# 仅有一个session 时这是最快的连接方式</span><br><span class="hljs-string">tmux kill-session -a -t [名字] # 删除[名字]以外的session</span><br></code></pre></div></td></tr></table></figure>
-
 <p>从 <code>tmux</code> 中往外复制东西的方法：</p>
 <p>先按住 <code>shift</code> 不放，用鼠标选中复制的内容，松开 <code>shift</code> ，再按 <code>ctrl+insert</code> 复制；然后在电脑上按 <code>shift+insert</code> 粘贴。 </p>
 <p>常用的 <code>tmux</code> 配置，<code>vim ~/.tmux.conf</code> 。</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># Send prefix: ctr + b 改为 ctr + a</span><br>set-option -g prefix C-a<br>unbind-key C-a<br>bind-key C-a send-prefix<br><br><span class="hljs-comment"># Use Alt-arrow keys to switch panes</span><br><span class="hljs-comment"># 不用 prefix，直接 alt + 箭头在 pane 之间 switch</span><br><span class="hljs-built_in">bind</span> -n M-Left select-pane -L<br><span class="hljs-built_in">bind</span> -n M-Right select-pane -R<br><span class="hljs-built_in">bind</span> -n M-Up select-pane -U<br><span class="hljs-built_in">bind</span> -n M-Down select-pane -D<br><br><span class="hljs-comment"># Shift arrow to switch windows</span><br><span class="hljs-comment"># 不用按prefix，直接用shift+箭头在window之间switch</span><br><span class="hljs-built_in">bind</span> -n S-Left previous-window<br><span class="hljs-built_in">bind</span> -n S-Right next-window<br><br><span class="hljs-comment"># Mouse mode</span><br><span class="hljs-built_in">set</span> -g mouse on<br><br><span class="hljs-comment"># Set easier window split keys</span><br>bind-key v split-window -h<br>bind-key h split-window -v<br><br><span class="hljs-comment"># Easy config reload</span><br>bind-key r source-file ~/.tmux.conf \; display-message <span class="hljs-string">&quot;tmux.conf reloaded&quot;</span><br></code></pre></div></td></tr></table></figure>
-
 <p>更改了 <code>.tmux.conf</code> 后，在 <code>tmux</code> 里的快捷键没有变化。<code>tmux</code> 只有在新建 <em>session</em> 的时候，才会去找 <code>tmux.conf</code> 文件。</p>
 <p>所以，之前创建的 <em>session</em> 都没有参考 <code>tmux.conf</code>， 所以可以用<code>tmux lstmux kill-session -a</code> 仅仅保留当前 <em>session</em>。再删除当前 <code>session</code>  <code>tmux kill-session -t py27</code>。这下删除了所有创建好的 <em>session</em>。</p>
 <blockquote>
@@ -367,7 +359,9 @@ A[修改vim配置文件]--&gt; B[配置相应命令]
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/vim-tmux/">vim tmux</a>
+                      <a class="hover-with-bg" href="/tags/vim/">vim</a>
+                    
+                      <a class="hover-with-bg" href="/tags/tmux/">tmux</a>
                     
                   </div>
                 
@@ -384,18 +378,12 @@ A[修改vim配置文件]--&gt; B[配置相应命令]
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/15/Git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Git的基本使用</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/14/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-                        <span class="hidden-mobile">Linux常用命令</span>
+                      <a href="/2021/09/09/Git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+                        <span class="hidden-mobile">Git的基本使用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -566,6 +554,48 @@ A[修改vim配置文件]--&gt; B[配置相应命令]
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
