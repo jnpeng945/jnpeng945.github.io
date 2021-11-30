@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/project/img/favicon.png">
-  <link rel="icon" href="/project/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -20,7 +20,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
   <meta name="description" content="本文将对 Linux 系统进行简要介绍，并总结概括 Linux 系统下常用命令。 Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个基于 POSIX 和 UNIX 的多用户、多任务、支持多线程和多 CPU 的操作系统。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux常用命令">
-<meta property="og:url" content="https://jnpeng945.github.io/project/2021/11/14/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+<meta property="og:url" content="https://jnpeng945.github.io/2021/11/14/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 <meta property="og:site_name" content="JN&#39;s blog">
 <meta property="og:description" content="本文将对 Linux 系统进行简要介绍，并总结概括 Linux 系统下常用命令。 Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个基于 POSIX 和 UNIX 的多用户、多任务、支持多线程和多 CPU 的操作系统。">
 <meta property="og:locale" content="zh_CN">
@@ -39,7 +39,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
 
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/project/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
@@ -63,17 +63,17 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
-<link  rel="stylesheet" href="/project/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"jnpeng945.github.io","root":"/project/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/project/local-search.xml"};
+    var CONFIG = {"hostname":"jnpeng945.github.io","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/project/js/utils.js" ></script>
-  <script  src="/project/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -81,7 +81,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/project/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -100,7 +100,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -112,7 +112,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -124,7 +124,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -136,7 +136,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -148,7 +148,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/project/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -174,7 +174,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/project/img/default.png') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -265,7 +265,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
 </tr>
 </tbody></table>
 <h2 id="Linux-基础"><a href="#Linux-基础" class="headerlink" title="Linux 基础"></a>Linux 基础</h2><p><strong>Linux 启动流程：</strong></p>
-<img src="https://figs-1308257758.cos.ap-nanjing.myqcloud.com/img/20211114165855.png" srcset="/project/img/loading.gif" lazyload width = 700px>
+<img src="https://figs-1308257758.cos.ap-nanjing.myqcloud.com/img/20211114165855.png" srcset="/img/loading.gif" lazyload width = 700px>
 
 <p><strong>内核引导</strong>：<code>BOIS</code> 自检并按照 <code>BIOS</code> 中设置的启动设备（硬盘）启动。</p>
 <p><strong>运行</strong> <code>init</code> ：<code>init</code> 进程是系统所有进程的起点；</p>
@@ -273,7 +273,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
 <p><strong>系统初始化</strong>：激活交换分区，检查磁盘，加载硬件模块等。</p>
 <p><strong>用户登录系统</strong>：命令行、<code>ssh</code> 登录、图形界面；</p>
 <p><strong>Linux 关机流程</strong>：</p>
-<img src="https://figs-1308257758.cos.ap-nanjing.myqcloud.com/img/20211114170537.png" srcset="/project/img/loading.gif" lazyload width = 500px>
+<img src="https://figs-1308257758.cos.ap-nanjing.myqcloud.com/img/20211114170537.png" srcset="/img/loading.gif" lazyload width = 500px>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ man			<span class="hljs-comment"># 查看帮助文档</span><br>$ sync			<span class="hljs-comment"># 将数据由内存同步到硬盘中。</span><br>$ shutdown		<span class="hljs-comment">#关机指令</span><br>$ reboot		<span class="hljs-comment">#重启 == shutdown –r now	和	init 6</span><br>$ halt			<span class="hljs-comment">#关闭系统 == shutdown –h now 和 poweroff	和 init 0</span><br></code></pre></td></tr></table></figure>
 
@@ -387,9 +387,9 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/project/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+                      <a class="hover-with-bg" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
                     
-                      <a class="hover-with-bg" href="/project/categories/%E5%90%8E%E7%AB%AF/Linux/">Linux</a>
+                      <a class="hover-with-bg" href="/categories/%E5%90%8E%E7%AB%AF/Linux/">Linux</a>
                     
                   </div>
                 
@@ -397,7 +397,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/project/tags/Linux/">Linux</a>
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
                     
                   </div>
                 
@@ -414,7 +414,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/project/2021/11/14/vim%E4%B8%8Etmux%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                      <a href="/2021/11/14/vim%E4%B8%8Etmux%E7%9A%84%E4%BD%BF%E7%94%A8/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Linux下vim与tmux的使用</span>
                         <span class="visible-mobile">上一篇</span>
@@ -512,18 +512,18 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/project/js/events.js" ></script>
-<script  src="/project/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/project/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/project/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -576,7 +576,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/project/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>
