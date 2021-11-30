@@ -27,7 +27,7 @@ tmux 是 linux 中一种管理窗口的程序，支持多标签、分割窗口�
 <meta property="og:description" content="vim 编辑器是在终端运行的文本代码编辑器。 tmux 是 linux 中一种管理窗口的程序，支持多标签、分割窗口以及窗口组随时存储和恢复的功能。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-10T12:31:58.000Z">
-<meta property="article:modified_time" content="2021-11-30T12:00:58.803Z">
+<meta property="article:modified_time" content="2021-11-30T12:45:27.194Z">
 <meta property="article:author" content="Zrosor">
 <meta property="article:tag" content="vim">
 <meta property="article:tag" content="tmux">
@@ -175,6 +175,14 @@ tmux 是 linux 中一种管理窗口的程序，支持多标签、分割窗口�
                     剑指Offer
                   </a>
                 
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/">
+                    
+                    Fluid手册
+                  </a>
+                
               </div>
             </li>
           
@@ -284,16 +292,16 @@ A[修改vim配置文件]--&gt; B[配置相应命令]
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">h（左） j（下） k（上） l （右）<br>w	# 每次跳一个单词<br>b	# 往回跳<br>ctrl + f	# forword 往下翻页<br>ctrl + b	# 往上翻页<br>88gg		# 跳到 88 行<br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 往下，往上跳指定行</span> <br>10j			# 往下跳 10 行<br>10k			# 往上跳 10 行<br><br>/[内容]			# 查找内容 <br>按下 n 键可以跳到下一个查找的目标结果，shift + n 跳到上一个目标结果<br><br>cc	# 剪贴当前行<br>c2c	# 剪贴底下两行<br>u	# 撤销删除操作<br>pp	# 粘贴刚刚剪贴的内容<br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 批量选择</span><br><span class="hljs-meta">#</span><span class="bash"> 1. 命令模式中，按下 v 进入 visual 模式，然后搭配 hjkl（左下上右）键位使用，进行批量选择。</span><br><span class="hljs-meta">#</span><span class="bash"> 2. 搭配 c（剪贴） p（粘贴） u（撤销）键位使用</span><br>yy	# 复制当前行内容<br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 自动补全</span><br>ctrl + n	# 出现选项之后，按下 enter<br></code></pre></div></td></tr></table></figure>
 <p>:star: <code>vim</code> 插件管理器 + <strong>vim 自动补全插件</strong></p>
 <ul>
-<li><p>预先安装 <code>git</code> 和 <code>curl</code></p>
-</li>
-<li><p>安装 vim plug 插件（vim 插件管理软件），在 github 上下载；<a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">链接</a></p>
-</li>
-<li><p>```shell<br>curl -fLo ~/.vim/autoload/plug.vim —create-dirs \</p>
-<div class="hljs code-wrapper"><pre><code>https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-</code></pre></div><figure class="highlight leaf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs leaf"><br>- 修改 `~/.vimrc` 文件<br><br>  ```shell<br>  # 末尾添加<br>  call plug<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">begin</span><span class="hljs-params">()</span></span><br>  	Plug &#x27;scrooloose/nerdtree&#x27;		# 添加的插件名字<br>  call plug<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">end</span><span class="hljs-params">()</span></span><br></code></pre></div></td></tr></table></figure>
-</li>
-<li><p>任意打开一个文件，假设我们 <code>vim code.cpp</code>，然后在 <code>code.cpp</code> 的底线命令模式下输入 <code>:PlugInstall</code></p>
-</li>
+<li>预先安装 <code>git</code> 和 <code>curl</code></li>
+<li>安装 vim plug 插件（vim 插件管理软件），在 github 上下载；<a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">链接</a></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \<br>    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>修改 <code>~/.vimrc</code> 文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 末尾添加</span><br>call plug#begin()<br>Plug &#x27;scrooloose/nerdtree&#x27;		# 添加的插件名字<br>call plug#end()<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>任意打开一个文件，假设我们 <code>vim code.cpp</code>，然后在 <code>code.cpp</code> 的底线命令模式下输入 <code>:PlugInstall</code></li>
 </ul>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">https://github.com/junegunn/vim-plug</a></p>
@@ -308,9 +316,9 @@ A[修改vim配置文件]--&gt; B[配置相应命令]
 <li><p>首先随意打开一个文件，假设打开 <code>vim code.c</code> </p>
 </li>
 <li><p>输入 <code>:NERDTree</code>，实现像目录一样浏览系统中的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 切换左右两边窗口</span><br>按两次 ctrl + w<br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 打开该文件</span><br>Enter<br></code></pre></div></td></tr></table></figure>
 </li>
 </ol>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 切换左右两边窗口</span><br>按两次 ctrl + w<br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 打开该文件</span><br>Enter<br></code></pre></div></td></tr></table></figure>
 <p>:star: 每次使用 <code>vim</code> 都打开 <code>NERDTree</code> 插件的解决方法：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> Just write this line to your .vimrc :</span><br>autocmd VimEnter * NERDTree<br></code></pre></div></td></tr></table></figure>
 <blockquote>
