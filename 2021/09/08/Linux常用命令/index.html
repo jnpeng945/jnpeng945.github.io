@@ -29,7 +29,7 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
 <meta property="og:image" content="https://figs-1308257758.cos.ap-nanjing.myqcloud.com/img/20211114165855.png">
 <meta property="og:image" content="https://figs-1308257758.cos.ap-nanjing.myqcloud.com/img/20211114170537.png">
 <meta property="article:published_time" content="2021-09-08T08:40:27.000Z">
-<meta property="article:modified_time" content="2021-11-30T12:00:40.581Z">
+<meta property="article:modified_time" content="2021-12-01T09:28:11.603Z">
 <meta property="article:author" content="Zrosor">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
@@ -306,14 +306,16 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
 </table>
 </div>
 <h2 id="Linux-基础"><a href="#Linux-基础" class="headerlink" title="Linux 基础"></a>Linux 基础</h2><p><strong>Linux 启动流程：</strong></p>
-<p><img src="https://figs-1308257758.cos.ap-nanjing.myqcloud.com/img/20211114165855.png" srcset="/img/loading.gif" lazyload width = 700px></p>
+<div align = center><img src="https://figs-1308257758.cos.ap-nanjing.myqcloud.com/img/20211114165855.png" srcset="/img/loading.gif" lazyload width = "700px"></div>
+
 <p><strong>内核引导</strong>：<code>BOIS</code> 自检并按照 <code>BIOS</code> 中设置的启动设备（硬盘）启动。</p>
 <p><strong>运行</strong> <code>init</code> ：<code>init</code> 进程是系统所有进程的起点；</p>
 <p><strong>运行级别</strong>：许多程序需要开机启动，Windows 系统中称为服务 <code>service</code>，Linux 系统中是守护进程 <code>daemon</code> 。<code>init</code> 进程任务之一就是去运行这些开机启动的程序。（Linux 系统服务器用作服务器时，需要启动 <code>Apache</code>）。运行级别就是针对不同场合设置不同的程序启动时机，Linux 系统中有 7 级。</p>
 <p><strong>系统初始化</strong>：激活交换分区，检查磁盘，加载硬件模块等。</p>
 <p><strong>用户登录系统</strong>：命令行、<code>ssh</code> 登录、图形界面；</p>
 <p><strong>Linux 关机流程</strong>：</p>
-<p><img src="https://figs-1308257758.cos.ap-nanjing.myqcloud.com/img/20211114170537.png" srcset="/img/loading.gif" lazyload width = 500px></p>
+<div align = center><img src="https://figs-1308257758.cos.ap-nanjing.myqcloud.com/img/20211114170537.png" srcset="/img/loading.gif" lazyload width = "500px"></div>
+
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ man			<span class="hljs-comment"># 查看帮助文档</span><br>$ sync			<span class="hljs-comment"># 将数据由内存同步到硬盘中。</span><br>$ shutdown		<span class="hljs-comment">#关机指令</span><br>$ reboot		<span class="hljs-comment">#重启 == shutdown –r now	和	init 6</span><br>$ halt			<span class="hljs-comment">#关闭系统 == shutdown –h now 和 poweroff	和 init 0</span><br></code></pre></div></td></tr></table></figure>
 <hr>
 <figure class="highlight bash"><figcaption><span>/</span></figcaption><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">├── bin -&gt; usr/bin	<span class="hljs-comment"># 常用的程序和指令</span><br>├── boot		<span class="hljs-comment"># 启动 Linux 的内核文件，包括连接文件和镜像文件</span><br>├── dev			<span class="hljs-comment"># Linux 外部设备</span><br>├── etc			<span class="hljs-comment"># 系统的配置文件和子目录列表。更改将可能导致系统不能启动</span><br>├── home		<span class="hljs-comment"># 普通用户的主目录</span><br>├── lib -&gt; usr/lib		<span class="hljs-comment"># lib 基本代码库（C++库），基本动态连接共享库</span><br>├── lib32 -&gt; usr/lib32<br>├── lib64 -&gt; usr/lib64<br>├── libx32 -&gt; usr/libx32<br>├── lost+found	<span class="hljs-comment"># 一般情况下是空的，当系统非法关机后，这里会存放一些文件</span><br>├── media		<span class="hljs-comment"># 类似 Windows 的其他设备</span><br>├── mnt			<span class="hljs-comment"># 共享文件夹（实现Windows和Linux虚拟机文件共享）</span><br>├── opt			<span class="hljs-comment"># 默认为空，我们安装额外软件可以放在这个里面</span><br>├── proc		<span class="hljs-comment"># 管理内存空间</span><br>├── root		<span class="hljs-comment"># 系统管理员用户主目录</span><br>├── run			<span class="hljs-comment"># 临时文件系统，存放系统启动以来的信息</span><br>├── sbin -&gt; usr/sbin	<span class="hljs-comment"># 系统管理员才能用的程序和指令</span><br>├── srv			<span class="hljs-comment"># 存放服务启动后需要提取的数据</span><br>├── swapfile<br>├── sys			<span class="hljs-comment"># 内核源代码默认的放置目录</span><br>├── tmp			<span class="hljs-comment"># 存放临时文件</span><br>├── usr			<span class="hljs-comment"># unix shared resources，存放很多应用软件和文件</span><br>└── var			<span class="hljs-comment"># 不断更改的文件，各种日志文件</span><br></code></pre></div></td></tr></table></figure>
@@ -366,12 +368,10 @@ Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个�
 <div align = center><img src = "https://figs-1308257758.cos.ap-nanjing.myqcloud.com/img/Linux%E5%9F%BA%E7%A1%804.png" width = "500px"/></div>
 
 <p>测试结果：删除原始文件 <code>f1</code> 之后，硬连接 <code>f2</code> 不受影响，但是符号连接 <code>f3</code> 文件失效。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://linux.cn/article-3159-1.html">详解Linux与Unix系统的区别与联系</a></p>
-<p>华为云开发者社区：<a target="_blank" rel="noopener" href="https://blog.csdn.net/devcloud/article/details/112648614?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163680083016780357265345%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=163680083016780357265345&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-19-112648614.pc_v2_rank_blog_default&amp;utm_term=Linux&amp;spm=1018.2226.3001.4450">Linux 命令大全</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.linuxcool.com/">Linux 命令大全</a></p>
-</blockquote>
-
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://linux.cn/article-3159-1.html">详解Linux与Unix系统的区别与联系</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>华为云开发者社区：<a target="_blank" rel="noopener" href="https://blog.csdn.net/devcloud/article/details/112648614?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163680083016780357265345%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=163680083016780357265345&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-19-112648614.pc_v2_rank_blog_default&amp;utm_term=Linux&amp;spm=1018.2226.3001.4450">Linux 命令大全</a>
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.linuxcool.com/">Linux 命令大全</a>
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
             </div>
             <hr>
             <div>
