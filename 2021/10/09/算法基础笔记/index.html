@@ -26,7 +26,7 @@
 <meta property="og:description" content="三、搜索与图论    搜索算法 数据结构 空间 性质     DFS stack（栈） $O(h)$（$h$ 为搜索深度） 不一定是最短路径   BFS queue（队列） $O(2^h)$ 最短 路径     3.1 DFS 算法深度优先搜索（Depth First Search, DFS），一种用于搜索树或图的算法。每次都尝试向更深的节点走，搜到头时则回溯，回溯时继续 DFS。 DFS 注意搜">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-09T08:22:54.000Z">
-<meta property="article:modified_time" content="2021-12-09T09:12:29.714Z">
+<meta property="article:modified_time" content="2021-12-09T11:40:31.308Z">
 <meta property="article:author" content="Zrosor">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary_large_image">
@@ -43,7 +43,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/solarized-light.min.css" />
     
   
 
@@ -440,7 +440,7 @@
 6 &  \qquad t \gets \text{ 不在 st 中的距离最近的点} \\
 7 &  \qquad \text{用 } t \text{ 更新最短距离 }    \\
 8 &  \qquad st \gets t \\
-9 &  \textbf{return }  最短距离
+9 &  \textbf{return }  \text{最短距离}
 \end{array}</script><hr>
 <p><strong>例题1</strong>：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/851/">849. Dijkstra求最短路 I</a> （朴素版的 Dijkstra 算法）</p>
 <figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstring&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">510</span>;<br><span class="hljs-keyword">int</span> g[N][N];        <span class="hljs-comment">// 邻接矩阵</span><br><span class="hljs-keyword">int</span> dist[N];        <span class="hljs-comment">// 存储每个点到起点的最短距离</span><br><span class="hljs-keyword">bool</span> st[N];         <span class="hljs-comment">// 存储某个点是否已经更新过其它点</span><br><br><span class="hljs-keyword">int</span> n, m;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dijkstra</span><span class="hljs-params">()</span> </span>&#123;<br>    dist[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">int</span> t = <span class="hljs-number">-1</span>;         <span class="hljs-comment">// 不在集合 st 中距离最近的点</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++) &#123;<br>            <span class="hljs-keyword">if</span> (!st[j] &amp;&amp; (t == <span class="hljs-number">-1</span> || dist[t] &gt; dist[j])) &#123;<br>                t = j;<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">// t 更新最短路径</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++) &#123;<br>            dist[j] = <span class="hljs-built_in">min</span>(dist[j], dist[t] + g[t][j]);<br>        &#125;<br>        <span class="hljs-comment">// t 加入集合 st，表示已用于更新过其它点</span><br>        st[t] = <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (dist[n] == <span class="hljs-number">0x3f3f3f3f</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">return</span> dist[n];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n &gt;&gt; m;<br>    <br>    <span class="hljs-built_in">memset</span>(g, <span class="hljs-number">0x3f</span>, <span class="hljs-keyword">sizeof</span> g);<br>    <span class="hljs-built_in">memset</span>(dist, <span class="hljs-number">0x3f</span>, <span class="hljs-keyword">sizeof</span> dist);<br>    <br>    <span class="hljs-keyword">while</span> (m--) &#123;<br>        <span class="hljs-keyword">int</span> x, y, z;<br>        cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;<br>        g[x][y] = <span class="hljs-built_in">min</span>(g[x][y], z);      <span class="hljs-comment">// 存在重边时取最小权重值</span><br>    &#125;<br>    cout &lt;&lt; <span class="hljs-built_in">dijkstra</span>() &lt;&lt; endl;<br>&#125;<br></code></pre></div></td></tr></table></figure>
@@ -489,7 +489,7 @@
 6 &  \qquad \text{数组 }backup \gets \text{数组 }dist    \\
 7 &  \qquad \textbf{for } \text{ 所有的边 } (a, b, w) \\
 8 &  \qquad \qquad dist[b] = \min(dist[b], backup[a] + w)    \\
-9 &  \textbf{return }  最短距离
+9 &  \textbf{return }  \text{最短距离}
 \end{array}</script><p>注意：有的题目需要加上备份数组。</p>
 <hr>
 <p><strong>例题1</strong>：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/855/">AcWing 853. 有边数限制的最短路</a></p>
